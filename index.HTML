@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Kérdőív indítása</title>
+  <script>
+    window.onload = function () {
+      const now = new Date();
+
+      const pad = n => String(n).padStart(2, '0');
+
+      const year = now.getFullYear();
+      const month = pad(now.getMonth() + 1);
+      const day = pad(now.getDate());
+      const hour = pad(now.getHours());
+      const minute = pad(now.getMinutes());
+      const second = pad(now.getSeconds());
+
+      // Magyar formátum: ÉÉÉÉ.HH.NN. ÓÓ:PP:MM
+      const localFormat = `${year}.${month}.${day}. ${hour}:${minute}:${second}`;
+
+      // Google Forms URL a megfelelő entry azonosítóval
+      const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSelBFlX52IP2GaqDB7Ad1_jNTejseCMUo4bj4okwXybxu0aTQ/viewform?usp=pp_url&entry.983310594=" + encodeURIComponent(localFormat);
+
+      window.location.href = formUrl;
+    };
+  </script>
+</head>
+<body>
+  <p>Betöltés...</p>
+</body>
+</html>
